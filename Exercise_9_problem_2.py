@@ -11,8 +11,9 @@ import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point
 # YOUR CODE HERE 1 to read data
-data = None
-
+data = pd.read_csv("data/some_post.csv")
+make_point=lambda row:Point(row['lat'],row['lon'])
+data['geometry']=data.apply(make_point,axis=1)
 
 # CODE FOR TESTING YOUR SOLUTION
 
@@ -50,7 +51,7 @@ assert os.path.isfile(fp), "output shapefile does not exist"
 # - **Create a simple map of the points** using the `plot()` -funtion. 
 
 # YOUR CODE HERE 3
-
+geo.plot
 # Well done! Now you can move on to Exercise_9_problem_3.
 
 def func5():
